@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semáforo Interativo</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="container">
+        <div class="traffic-light-container">
+            <div class="traffic-light">
+                <div class="light red"></div>
+                <div class="light yellow"></div>
+                <div class="light green"></div>
+            </div>
+        </div>
+        
+        <div class="controls">
+            <button class="manual-btn" id="manualMode">Modo Manual</button>
+            <button class="auto-btn" id="autoMode">Modo Automático</button>
+        </div>
+        
+        <div class="controls" id="lightControls">
+            <button class="light-btn red-btn" id="redBtn">Vermelho</button>
+            <button class="light-btn yellow-btn" id="yellowBtn">Amarelo</button>
+            <button class="light-btn green-btn" id="greenBtn">Verde</button>
+        </div>
+        
+        <div class="status" id="status">Modo: Automático</div>
+    </div>
+
+    <script src="semaforo.js"></script>
+</body>
+</html>

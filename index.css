@@ -1,0 +1,227 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #1a1a2e;
+    transition: background-color 1s ease;
+    padding: 20px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+/* Estrutura completa do semáforo */
+.traffic-light-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.traffic-light {
+    width: 180px;
+    height: 400px;
+    background: linear-gradient(145deg, #444, #222);
+    border-radius: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 25px 0;
+    box-shadow: 
+        0 0 25px rgba(0, 0, 0, 0.7),
+        inset 0 -5px 15px rgba(0, 0, 0, 0.5);
+    position: relative;
+    border: 8px solid #2a2a2a;
+}
+
+/* Poste do semáforo */
+.traffic-light::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 150px;
+    background: linear-gradient(to bottom, #333, #222);
+    z-index: -1;
+    border-radius: 0 0 10px 10px;
+}
+
+/* Base do semáforo */
+.traffic-light::before {
+    content: '';
+    position: absolute;
+    top: calc(100% + 150px);
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 20px;
+    background: linear-gradient(to bottom, #444, #222);
+    border-radius: 5px;
+}
+
+.light {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background-color: #111;
+    transition: all 0.5s ease;
+    border: 3px solid #000;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Efeito de brilho interno quando ativo */
+.light.active::before {
+    content: '';
+    position: absolute;
+    top: 15%;
+    left: 15%;
+    width: 30%;
+    height: 30%;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    filter: blur(5px);
+}
+
+.red.active {
+    background-color: #ff3333;
+    box-shadow: 
+        0 0 30px #ff3333,
+        inset 0 0 20px rgba(255, 100, 100, 0.8);
+}
+
+.yellow.active {
+    background-color: #ffff33;
+    box-shadow: 
+        0 0 30px #ffff33,
+        inset 0 0 20px rgba(255, 255, 150, 0.8);
+}
+
+.green.active {
+    background-color: #33ff33;
+    box-shadow: 
+        0 0 30px #33ff33,
+        inset 0 0 20px rgba(150, 255, 150, 0.8);
+}
+
+.controls {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+button {
+    padding: 12px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+}
+
+.manual-btn {
+    background-color: #4a4a8a;
+    color: white;
+}
+
+.manual-btn:hover {
+    background-color: #5a5a9a;
+    transform: translateY(-2px);
+}
+
+.auto-btn {
+    background-color: #2a8c55;
+    color: white;
+}
+
+.auto-btn:hover {
+    background-color: #3a9c65;
+    transform: translateY(-2px);
+}
+
+.light-btn {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.light-btn:hover {
+    transform: scale(1.1);
+}
+
+.red-btn {
+    background-color: #5a1a1a;
+}
+
+.red-btn:hover {
+    background-color: #6a2a2a;
+}
+
+.yellow-btn {
+    background-color: #5a5a1a;
+}
+
+.yellow-btn:hover {
+    background-color: #6a6a2a;
+}
+
+.green-btn {
+    background-color: #1a5a1a;
+}
+
+.green-btn:hover {
+    background-color: #2a6a2a;
+}
+
+.status {
+    color: white;
+    font-size: 18px;
+    margin-top: 10px;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 500px) {
+    .traffic-light {
+        width: 140px;
+        height: 320px;
+    }
+    
+    .light {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .light-btn {
+        width: 60px;
+        height: 60px;
+        font-size: 14px;
+    }
+}
